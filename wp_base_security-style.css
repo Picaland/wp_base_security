@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.plugins tr[data-slug="wp-base-security"] th,
+.plugins tr[data-slug="wp-base-security"] td,
+#the-list tr[data-slug="wp-base-security"]:last-child td,
+#the-list tr[data-slug="wp-base-security"]:last-child th,
+.plugins tr#wp-base-security th,
+.plugins tr#wp-base-security td {
+	border-bottom: 1px solid orange !important;
+	border-top: 1px solid orange !important;
+	background: #eeeeee !important;
+}
