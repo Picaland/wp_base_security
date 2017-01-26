@@ -95,7 +95,7 @@ if (!function_exists('wp_base_security_hide_login_message')) {
 	 */
 	function _wp_base_security_hide_login_message($message)
 	{
-		return __('username o password errati', 'pic');
+		return __('Invalid Username or Password', 'pic');
 	}
 
 	add_filter('login_errors', '_wp_base_security_hide_login_message');
