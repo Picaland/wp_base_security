@@ -6,7 +6,7 @@
  * Description: Plugin per la sicurezza base di Wordpress - (inserisce in autometico delle regole nel file .htaccess)
  *
  * Version:     1.0.0
- * Author:      Alfredo Piccione
+ * Author:      Alfredo Piccione <alfio.piccione@gmail.com>
  * Text Domain: pic
  * Domain Path: /languages
  * License      GPL 2
