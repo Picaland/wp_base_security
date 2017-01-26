@@ -3,13 +3,13 @@
  * Plugin Name: Wp Base Security
  *
  * Plugin URI:  #
- * Description: Plugin per la sicurezza base di Wordpress - (inserisce in autometico delle regole nel file .htaccess)
+ * Description: Plugin for the basic security of Wordpress
  *
  * Version:     1.0.0
  * Author:      Alfredo Piccione <alfio.piccione@gmail.com>
  * Text Domain: pic
  * Domain Path: /languages
- * License      GPL 2
+ * License      GPL 3
  *
  *    This program is free software; you can redistribute it and/or
  *    modify it under the terms of the GNU General Public License
