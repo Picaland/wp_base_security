@@ -95,7 +95,7 @@ if (!function_exists('wp_base_security_hide_login_message')) {
 	 */
 	function _wp_base_security_hide_login_message($message)
 	{
-		return __('Invalid Username or Password', 'pic');
+		return __('username o password errati', 'pic');
 	}
 
 	add_filter('login_errors', '_wp_base_security_hide_login_message');
@@ -158,8 +158,6 @@ if (!function_exists('_wp_base_security_load_admin_style')) {
 	}
 
 	add_action('admin_enqueue_scripts', '_wp_base_security_load_admin_style');
-
-
 }
 
 /* ---------------------------------------------------------------------------
@@ -199,7 +197,19 @@ if (!function_exists('_wp_base_security_add_htaccess')) {
 		$rules[] = '</IfModule>';
 
 		$htaccess_file = ABSPATH.'.htaccess';
-		return insert_with_markers($htaccess_file, 'WP BASE SECURITY', (array) $rules);
+
+		// Wordpress Marker
+		$wordpress_marker = extract_from_markers( $htaccess_file, 'WordPress' );
+
+		if (sizeof($wordpress_marker) > 0) {
+			// Clear file
+			file_put_contents($htaccess_file, "");
+			return insert_with_markers($htaccess_file, 'WP BASE SECURITY', (array) $rules);
+
+		} else {
+
+			return insert_with_markers($htaccess_file, 'WP BASE SECURITY', (array) $rules);
+		}
 	}
 	add_action('_wp_base_security_activate_hook','_wp_base_security_add_htaccess');
 }
@@ -226,3 +236,14 @@ if (!function_exists('_wp_base_security_rewrite_rules')) {
 	}
 	add_action('_wp_base_security_deactivate_hook','_wp_base_security_rewrite_rules');
 }
+
+/**
+ * Set permalink structure
+ *
+ * @since 1.0.0
+ */
+add_action('init', function(){
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure('/%postname%/');
+	flush_rewrite_rules();
+});
